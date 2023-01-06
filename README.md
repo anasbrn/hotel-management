@@ -21,7 +21,7 @@ Hotel Reservation Management is a website that offers accommodation in different
 
 ### Client characteristics
 - Reserve a hotel.
-- search for hotels, filtring hotels by(Budget, distance, stars ...).
+- Search for hotels, filtring hotels by (Budget, distance, stars ...).
 - Authentication to his dashboard.
 - Edit and update informations of his account or delete his account.
 
