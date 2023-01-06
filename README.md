@@ -1,5 +1,4 @@
 # Hotel Reservation Management
-#Hotel Reservation Management
 
 ## Overview
 Hotel Reservation Management is a website that offers accommodation in different hotels in Morocco (Casablanca, Marrakech, Rabat ...), also coordinating and handling reservations for an hotel. This includes tasks such as taking and processing client bookings, and handling cancellations and changes to reservations. It also involves providing assistance to clients with their inquiries and needs, such as booking activities. In the modern age, hotel reservation management is often done using computer systems that allow for easy tracking and organization of bookings and client information.
