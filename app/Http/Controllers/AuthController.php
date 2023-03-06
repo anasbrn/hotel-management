@@ -18,22 +18,21 @@ class AuthController extends Controller
     {
         $request->validate([
             'email' => 'required|string|email',
-            'password' => 'required|string'
+            'password' => 'required|string',
         ]);
         $credentials = $request->only('email', 'password');
 
         $token = Auth::attempt($credentials);
-
-        if(!$token) {
+        if (!$token) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Unauthorzied',
+                'message' => 'Unauthorized',
             ], 401);
         }
 
         $user = Auth::user();
         return response()->json([
-            'status' => "success",
+            'status' => 'success',
             'user' => $user,
             'authorisation' => [
                 'token' => $token,
@@ -48,12 +47,14 @@ class AuthController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'phone' => 'required|numeric|min:10',
             'password' => 'required|string|min:6',
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'phone' => $request->phone,
             'password' => Hash::make($request->password),
         ]);
 
