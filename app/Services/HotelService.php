@@ -12,8 +12,14 @@ class HotelService
     {
         $this->hotelRepository = $hotelRepository;
     }
+
     public function all()
     {
         return $this->hotelRepository->all();
+    }
+
+    public function find($id)
+    {
+        return $this->hotelRepository->find($id);
     }
 }

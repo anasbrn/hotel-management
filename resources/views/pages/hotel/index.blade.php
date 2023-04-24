@@ -1,6 +1,5 @@
 @foreach ($hotels as $hotel)
     
-<p>{{ $hotel->name }}</p>
-<p>{{ $hotel->description }}</p>
+<a href="{{ route('show', $hotel->id) }}">{{ $hotel->name }}</a>
 
 @endforeach

@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->dateTime('check_in_date');
             $table->dateTime('check_out_date');
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('room_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reservations');
+            Schema::dropIfExists('reservations');
     }
 };

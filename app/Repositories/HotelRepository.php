@@ -10,4 +10,9 @@ class HotelRepository
     {
         return Hotel::all();
     }
+
+    public function find($id)
+    {
+        return Hotel::findOrFail($id);
+    }
 }

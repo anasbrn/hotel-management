@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('rooms', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->integer('room_number');
+            $table->foreignId('hotel_id')->constrained()->onDelete('cascade');
+            $table->string('room_type');
+            $table->float('price_per_night');
             $table->timestamps();
         });
     }
@@ -23,8 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('roles');
-        Schema::enableForeignKeyConstraints();
+        Schema::dropIfExists('rooms');
     }
 };

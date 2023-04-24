@@ -26,25 +26,12 @@ class HotelController extends Controller
                 'hotels' => $hotels,
             ]);
     }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
 
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         //
@@ -53,9 +40,14 @@ class HotelController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Hotel $hotel)
+    public function find($id)
     {
-        //
+        $hotel = $this->hotelService->find($id);
+
+        return view('pages.hotel.show')
+            ->with([
+                'hotel' => $hotel,
+            ]);
     }
 
     /**
