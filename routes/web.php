@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HotelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,6 @@ Route::get('/', function () {
         'users' => User::all() 
     ]);
 });
+
+
+Route::get('/hotels', [HotelController::class, 'all'])->name('list-hotels');
