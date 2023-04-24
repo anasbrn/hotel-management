@@ -21,5 +21,6 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/hotels', [HotelController::class, 'all'])->name('list-hotels');
-Route::get('/hotel/{id}', [HotelController::class, 'find'])->name('show');
+Route::get('hotels', [HotelController::class, 'all'])->name('list-hotels');
+Route::get('hotel/{id}', [HotelController::class, 'find'])->name('show');
+Route::get('reserve/{id}', [HotelController::class, 'reserve'])->name('reserve');

@@ -2,4 +2,4 @@
 <p>{{ $hotel->description }}</p>
 <p>{{ $hotel->city->name }}</p>
 
-<a>Reserve</a>
+<a href="{{ route('reserve', $hotel->id) }}">Reserve</a>

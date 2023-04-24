@@ -27,9 +27,14 @@ class HotelController extends Controller
             ]);
     }
 
-    public function create()
+    public function reserve($id)
     {
-        //
+        $hotel = $this->hotelService->find($id);
+        
+        return view('pages.hotel.reserve')
+            ->with([
+                'hotel'=> $hotel,
+            ]);
     }
 
     public function store(Request $request)
