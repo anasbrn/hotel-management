@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Reservation;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Room extends Model
 {
@@ -11,5 +12,9 @@ class Room extends Model
 
     public function RoomImages() {
         return $this->belongsToMany(RoomImages::class);
+    }
+
+    public function Reservation() {
+        return $this->hasOne(Reservation::class);
     }
 }

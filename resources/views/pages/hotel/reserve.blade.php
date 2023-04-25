@@ -17,7 +17,15 @@
         <option value="">Double</option>
         <option value="">Single</option>
     </select>
-
+    {{-- Hard coding --}}
+    @if ($hotel->id == 2)
+    {{-- Hard coding auth user --}}
     <button type="submit">Reserve</button>
+    @endif
 </form>
+    {{-- Hard coding --}}
+    @if ($hotel->id != 2)
+    {{-- Hard coding auth user --}}
+    <button>Download receipt paiment</button>    
+    @endif
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservation;
+use App\Services\HotelService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Services\ReservationService;
@@ -12,18 +13,20 @@ use Illuminate\Http\RedirectResponse;
 class ReservationController extends Controller
 {
     protected $reservationService;
+    protected $hotelService;
 
-    public function __construct(ReservationService $reservationService)
+    public function __construct(ReservationService $reservationService, HotelService $hotelService)
     {
         $this->reservationService = $reservationService;
+        $this->hotelService = $hotelService;
     }
 
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function all()
     {
-        //
+        
     }
 
     /**
@@ -50,12 +53,27 @@ class ReservationController extends Controller
             ->with('You have successfully reserved this room');
     }
 
+    public function reserve($id)
+    {
+        $hotel = $this->hotelService->find($id);
+        
+        return view('pages.hotel.reserve')
+            ->with([
+                'hotel'=> $hotel,
+            ]);
+    }
+
     /**
      * Display the specified resource.
      */
-    public function show(Reservation $reservation)
+    public function find($id)
     {
-        //
+        $reservation = $this->reservationService->find($id);
+        
+        return view('pages.hotel.show')
+            ->with([
+                'reservation'=> $reservation,
+            ]);
     }
 
     /**

@@ -14,8 +14,18 @@ class ReservationService
         $this->reservationRepository = $reservationRepository;
     }
 
+    public function all()
+    {
+        return $this->reservationRepository->all();
+    }
+
     public function create(array $data)
     {
         return $this->reservationRepository->create($data);
+    }
+
+    public function find($id)
+    {
+        return $this->reservationRepository->find($id);
     }
 }
