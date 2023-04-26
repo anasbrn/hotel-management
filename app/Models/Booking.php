@@ -8,7 +8,7 @@ use App\Models\Payment;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Reservation extends Model
+class Booking extends Model
 {
     use HasFactory;
 

@@ -13,7 +13,7 @@ class Payment extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function Reservation() {
-        return $this->belongsTo(Reservation::class);
+    public function booking() {
+        return $this->belongsTo(Booking::class);
     }
 }

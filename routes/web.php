@@ -2,8 +2,11 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HotelController;
-use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\Hotel\ShowHotelController;
+use App\Http\Controllers\Hotel\ListHotelsController;
+use App\Http\Controllers\Booking\BookHotelController;
+use App\Http\Controllers\Booking\StoreBookingController;
+use App\Http\Controllers\Payment\getReceiptPaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +25,10 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('hotels', [HotelController::class, 'all'])->name('list-hotels');
-Route::get('hotel/{id}', [HotelController::class, 'find'])->name('show');
+Route::get('hotels', ListHotelsController::class)->name('list-hotels');
+Route::get('hotel/{id}', ShowHotelController::class)->name('show');
 
-Route::get('reserve/{id}', [ReservationController::class, 'reserve'])->name('reserve');
-Route::get('reserve/store/{id}', [ReservationController::class, 'create'])->name('store-reservation');
+Route::get('book/{id}', BookHotelController::class)->name('book');
+Route::get('book/store/{id}', StoreBookingController::class)->name('store-booking');
+
+Route::get('{booking_id}/pay', getReceiptPaymentController::class)->name('payment');

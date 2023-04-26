@@ -72,8 +72,8 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsTo(Rating::class);
     }
 
-    public function reservations() {
-        return $this->belongsToMany(Reservation::class);
+    public function bookings() {
+        return $this->belongsToMany(Booking::class);
     }
 
     public function payments() {

@@ -4099,7 +4099,7 @@
 											"top": 763.5,
 											"width": 124,
 											"height": 13,
-											"text": "Update reservations"
+											"text": "Update bookings"
 										},
 										{
 											"_type": "LabelView",
@@ -4290,7 +4290,7 @@
 											"top": 515.5,
 											"width": 115,
 											"height": 13,
-											"text": "Cancel reservation"
+											"text": "Cancel booking"
 										},
 										{
 											"_type": "LabelView",
@@ -8116,7 +8116,7 @@
 											"top": 1051.5,
 											"width": 110,
 											"height": 13,
-											"text": "View reservations"
+											"text": "View bookings"
 										},
 										{
 											"_type": "LabelView",
@@ -9202,7 +9202,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGGcDSdXtRL7ek="
 					},
-					"name": "Update reservations",
+					"name": "Update bookings",
 					"ownedElements": [
 						{
 							"_type": "UMLInclude",
@@ -9225,7 +9225,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGGcDSdXtRL7ek="
 					},
-					"name": "Cancel reservation",
+					"name": "Cancel booking",
 					"ownedElements": [
 						{
 							"_type": "UMLInclude",
@@ -9454,7 +9454,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGGcDSdXtRL7ek="
 					},
-					"name": "View reservations",
+					"name": "View bookings",
 					"ownedElements": [
 						{
 							"_type": "UMLInclude",
@@ -11217,7 +11217,7 @@
 											"top": 388,
 											"width": 182.4443359375,
 											"height": 13,
-											"text": "+total_cost_reservation(): string",
+											"text": "+total_cost_booking(): string",
 											"horizontalAlignment": 0
 										}
 									],
@@ -12139,7 +12139,7 @@
 											"top": 343,
 											"width": 182.4443359375,
 											"height": 13,
-											"text": "Reservation"
+											"text": "booking"
 										},
 										{
 											"_type": "LabelView",
@@ -12381,7 +12381,7 @@
 											"top": 509,
 											"width": 182.4443359375,
 											"height": 13,
-											"text": "+total_cost_reservation(): string",
+											"text": "+total_cost_booking(): string",
 											"horizontalAlignment": 0
 										}
 									],
@@ -15673,7 +15673,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGGnYTtgFCO6FQ="
 					},
-					"name": "Reservation",
+					"name": "booking",
 					"attributes": [
 						{
 							"_type": "UMLAttribute",
@@ -15818,7 +15818,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGGprOrs1KcKHk="
 							},
-							"name": "total_cost_reservation",
+							"name": "total_cost_booking",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -16046,7 +16046,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGGpsjEb1QbHDc="
 							},
-							"name": "total_cost_reservation",
+							"name": "total_cost_booking",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -16067,7 +16067,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGGnYTtgFCO6FQ="
 					},
-					"name": "Reservation",
+					"name": "booking",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -16285,7 +16285,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGGpyU7UxUo+iA="
 							},
-							"name": "total_cost_reservation",
+							"name": "total_cost_booking",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -17039,7 +17039,7 @@
 													"top": 47,
 													"width": 132.83984375,
 													"height": 13,
-													"text": "Reservation system"
+													"text": "booking system"
 												},
 												{
 													"_type": "LabelView",
@@ -17946,7 +17946,7 @@
 												"$ref": "AAAAAAGGspFeiU4dd3A="
 											},
 											"edgePosition": 1,
-											"text": "7 : Reservation details"
+											"text": "7 : booking details"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -18136,7 +18136,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGGsj5s10LpUms="
 							},
-							"name": "Reservation details",
+							"name": "booking details",
 							"source": {
 								"$ref": "AAAAAAGGsoVD2kn7TEU="
 							},
@@ -18178,7 +18178,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGGsj5s10LpUms="
 							},
-							"name": "Reservation system",
+							"name": "booking system",
 							"represent": {
 								"$ref": "AAAAAAGGsoVD2kn6VuU="
 							},
