@@ -6,6 +6,6 @@
 
 @section('content')
     @foreach ($hotels as $hotel)
-        <a href="{{ route('show', ['id' => $hotel->id]) }}">{{ $hotel->name }}</a>
+        <a href="{{ route('show', ['id' => $hotel->getId()]) }}">{{ $hotel->getName() }}</a>
     @endforeach
 @endsection

@@ -5,9 +5,9 @@
 @endsection
 
 @section('content')
-    <h1>{{ $hotel->name }}</h1>
+    <h1>{{ $hotel->getName() }}</h1>
 
-    <form action="{{ route('store-booking', $hotel->id) }}">
+    <form action="{{ route('store-booking', $hotel->getId()) }}">
         @csrf
         <label for="check_in_date">Check in date</label>
         <input type="datetime-local" id="check_in_date" name="check_in_date">

@@ -19,7 +19,7 @@ use App\Http\Controllers\Payment\getReceiptPaymentController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('welcome', [
         'users' => User::all() 
     ]);
@@ -28,7 +28,7 @@ Route::get('/', function () {
 Route::get('hotels', ListHotelsController::class)->name('list-hotels');
 Route::get('hotel/{id}', ShowHotelController::class)->name('show');
 
-Route::get('book/{id}', BookHotelController::class)->name('book');
-Route::get('book/store/{id}', StoreBookingController::class)->name('store-booking');
+Route::get('book/{id}', BookHotelController::class)->name('book')->middleware('auth', 'verified');
+Route::get('book/store/{id}', StoreBookingController::class)->name('store-booking')->middleware('auth', 'verified');
 
-Route::get('{booking_id}/pay', getReceiptPaymentController::class)->name('payment');
+Route::get('{booking_id}/pay', getReceiptPaymentController::class)->name('payment')->middleware('auth', 'verified');
