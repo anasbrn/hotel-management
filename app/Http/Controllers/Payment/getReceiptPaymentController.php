@@ -17,7 +17,6 @@ class getReceiptPaymentController extends Controller
     public function __invoke($id)
     {
         $booking = $this->bookingService->find($id);
-        dd($booking);
 
         return view('pages.hotel.paymentPdf')
             ->with([

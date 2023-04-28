@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Room;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Hotel extends Model
 {
@@ -71,5 +72,9 @@ class Hotel extends Model
 
     public function rating() {
         return $this->belongsTo(Rating::class);
+    }
+
+    public function rooms() {
+        return $this->hasMany(Room::class);
     }
 }

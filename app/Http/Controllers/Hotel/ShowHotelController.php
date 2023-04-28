@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers\Hotel;
 
+use App\Models\Booking;
 use App\Services\HotelService;
-use App\Services\BookingService;
 use App\Http\Controllers\Controller;
-use App\Models\Hotel;
+use Illuminate\Support\Facades\Auth;
 
 class ShowHotelController extends Controller
 {
-    protected $hotelService;
-
-    public function __construct(HotelService $hotelService)
+    public function __construct(private HotelService $hotelService)
     {
         $this->hotelService = $hotelService;
     }
@@ -19,10 +17,16 @@ class ShowHotelController extends Controller
     public function __invoke($id)
     {
         $hotel = $this->hotelService->find($id);
+        
+        $booking = Booking::where('user_id', Auth::id())
+            ->where('hotel_id', $hotel->id)
+            ->first();
 
         return view('pages.hotel.show')
             ->with([
                 'hotel' => $hotel,
-            ]);
+                'booking' => $booking,
+        ]);
     }
+
 }

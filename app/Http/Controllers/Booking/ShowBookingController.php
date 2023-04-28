@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers\Booking;
 
-use App\Models\Booking;
-use Illuminate\Http\Request;
-use App\Services\HotelService;
 use App\Http\Controllers\Controller;
 use App\Services\BookingService;
 

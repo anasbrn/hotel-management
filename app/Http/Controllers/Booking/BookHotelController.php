@@ -7,9 +7,8 @@ use App\Http\Controllers\Controller;
 
 class BookHotelController extends Controller
 {
-    protected $hotelService;
 
-    public function __construct(HotelService $hotelService)
+    public function __construct(private HotelService $hotelService)
     {
         $this->hotelService = $hotelService;
     }
@@ -18,7 +17,7 @@ class BookHotelController extends Controller
     {
         $hotel = $this->hotelService->find($id);
         
-        return view('pages.hotel.reserve')
+        return view('pages.hotel.book')
             ->with([
                 'hotel'=> $hotel,
             ]);   
