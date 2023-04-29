@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers\Payment;
 
+use App\Services\PaymentService;
 use App\Http\Controllers\Controller;
 use App\Services\BookingService;
 
 class getReceiptPaymentController extends Controller
 {
+    protected $paymentService;
     protected $bookingService;
 
-    public function __construct(BookingService $bookingService)
+    public function __construct(PaymentService $paymentService, BookingService $bookingService)
     {
+        $this->paymentService = $paymentService;
         $this->bookingService = $bookingService;
     }
 
@@ -18,9 +21,10 @@ class getReceiptPaymentController extends Controller
     {
         $booking = $this->bookingService->find($id);
 
-        return view('pages.hotel.paymentPdf')
-            ->with([
-                'booking'=> $booking,
-            ]);
+        $data = [
+            'booking'=> $booking,
+        ];
+
+        return $this->paymentService->generatePdf($data, $booking);
     }
 }

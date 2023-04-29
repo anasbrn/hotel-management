@@ -12,7 +12,7 @@
     <h1>{{ $hotel->getName() }}</h1>
 
     
-    <form action="{{ route('store-booking', $hotel->getId()) }}">
+    <form action="{{ route('store-booking', $hotel->getId()) }}" method="POST">
         @csrf
         <label for="check_in_date">Check in date</label>
         <input type="datetime-local" id="check_in_date" name="check_in_date">

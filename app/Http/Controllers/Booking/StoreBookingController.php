@@ -24,8 +24,11 @@ class StoreBookingController extends Controller
 
         $this->bookingService->create($data);
 
-        return redirect()
-            ->back()
-            ->with('You have successfully reserved this room'); 
+        $booking = Booking::where('user_id', Auth::id())->first();
+
+        return view('pages.booking.myBookings')
+            ->with([
+                'booking' => $booking,
+            ]); 
     }
 }

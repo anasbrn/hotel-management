@@ -29,6 +29,6 @@ Route::get('hotels', ListHotelsController::class)->name('list-hotels');
 Route::get('hotel/{id}', ShowHotelController::class)->name('show');
 
 Route::get('hotel/{id}/booking', BookHotelController::class)->name('book')->middleware('auth', 'verified');
-Route::get('hotel/{id}/booking/store', StoreBookingController::class)->name('store-booking')->middleware('auth', 'verified');
+Route::post('hotel/{id}/booking/store', StoreBookingController::class)->name('store-booking')->middleware('auth', 'verified');
 
 Route::get('bookings/{booking_id}', getReceiptPaymentController::class)->name('payment')->middleware('auth', 'verified');

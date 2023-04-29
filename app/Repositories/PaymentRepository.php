@@ -2,23 +2,22 @@
 
 namespace App\Repositories;
 
-use App\Models\Booking;
+use App\Models\Payment;
 
-
-class BookingRepository
+class PaymentRepository
 {
     public function all()
     {
-        return Booking::all();
+        return Payment::all();
     }
 
     public function create(array $data)
     {
-        return Booking::create($data);
+        return Payment::create($data);
     }
 
     public function find($id)
     {
-        return Booking::findOrFail($id);
+        return Payment::findOrFail($id);
     }
 }
