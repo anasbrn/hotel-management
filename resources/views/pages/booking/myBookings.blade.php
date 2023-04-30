@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.hotel.layout')
 
 @section('title', 'My Bookings')
 
@@ -23,7 +23,7 @@
                 <td>{{ $booking->room->getRoomNumber() }}</td>
                 <td>
                     {{-- To add - if paid show downoload receipt payment --}}
-                    <a href="">Pay Now</a>
+                    {{-- <a href="{{ route('store-payment') }}">Pay Now</a> --}}
                     {{-- end if --}}
                 </td>
             </tr>

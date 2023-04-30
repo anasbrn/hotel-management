@@ -12,6 +12,11 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public const NAME_COLUMN = 'name';
+    public const IMAGE_COLUMN = 'image';
+    public const EMAIL_COLUMN = 'email';
+    public const PHONE_COLUMN = 'phone';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -43,6 +48,26 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getName()
+    {
+        return $this->getAttribute(self::NAME_COLUMN);
+    }
+
+    public function getImage()
+    {
+        return $this->getAttribute(self::IMAGE_COLUMN);
+    }
+
+    public function getEmail()
+    {
+        return $this->getAttribute(self::EMAIL_COLUMN);
+    }
+
+    public function getPhone()
+    {
+        return $this->getAttribute(self::PHONE_COLUMN);
+    }
 
     public function roles(){
         return $this->belongsToMany(Role::class);

@@ -17,6 +17,9 @@ return new class extends Migration
             $table->dateTime('check_out_date');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('room_id')->constrained()->onDelete('cascade');
+            $table->foreignId('hotel_id')->constrained()->onDelete('cascade')->after('room_id');
+            $table->string('reference_number')->unique()->index();
+            $table->string('status')->default(0);
             $table->timestamps();
         });
     }

@@ -12,8 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\City::create([
-            'name' => 'Youssoufia',
-        ]);
+        //
     }
 }

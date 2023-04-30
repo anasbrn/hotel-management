@@ -19,16 +19,13 @@ class StoreBookingController extends Controller
 
     public function __invoke(Request $request)
     {
-        $data = $request->all();
-        $data[Booking::USER_ID_COLUMN] = Auth::user()->id;
+            // $data = $request->all();
+            // $data[Booking::USER_ID_COLUMN] = Auth::id();
 
-        $this->bookingService->create($data);
+        $this->bookingService->create($request->all());
 
-        $booking = Booking::where('user_id', Auth::id())->first();
-
-        return view('pages.booking.myBookings')
-            ->with([
-                'booking' => $booking,
-            ]); 
+        return redirect()
+            ->back()
+            ->with('You have successfully booked this room');
     }
 }

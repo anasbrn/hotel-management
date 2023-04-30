@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.hotel.layout')
 
 @section('title')
     Book Hotel
