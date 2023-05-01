@@ -56,13 +56,15 @@
                                         <button class="dropdown-item" type="submit">Delete</button>
                                     </form>
                                 </li>
-                                <li>
-                                    <form action="{{ route('dashboard-bookings-approve', ['booking_id' => $booking->getId()]) }}" method="POST">
-                                        @csrf
-                                        @method('PUT')
-                                        <button class="dropdown-item" type="submit">Approve</button>
-                                    </form>
-                                </li>
+                                @if($booking->getStatus() == $not_paid)
+                                    <li>
+                                        <form action="{{ route('dashboard-bookings-approve', ['booking_id' => $booking->getId()]) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <button class="dropdown-item" type="submit">Approve</button>
+                                        </form>
+                                    </li>
+                                @endif
                             </ul>
                           </div>
                     </td>
