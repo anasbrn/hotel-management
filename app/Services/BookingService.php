@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Booking;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\BookingRepository;
@@ -37,5 +38,22 @@ class BookingService
     public function destroy($id)
     {
         return $this->bookingRepository->destroy($id);
+    }
+
+    public function update($id, $data)
+    {
+        return $this->bookingRepository->update($id, $data);
+    }
+
+    public function approve($id)
+    {
+        $isUpdated = $this->update(
+            $id,
+            [
+                Booking::STATUS_COLUMN => Booking::STATUS_PAID,
+            ]
+        );
+
+        return $isUpdated;
     }
 }

@@ -57,7 +57,11 @@
                                     </form>
                                 </li>
                                 <li>
-                                    <a href="">Approve</a>
+                                    <form action="{{ route('dashboard-bookings-approve', ['booking_id' => $booking->getId()]) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <button class="dropdown-item" type="submit">Approve</button>
+                                    </form>
                                 </li>
                             </ul>
                           </div>
