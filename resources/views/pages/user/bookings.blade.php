@@ -39,9 +39,9 @@
                     <td>{{ $booking->hotel->getName() }}</td>
                     <td>{{ $booking->getReferenceNumber() }}</td>
                     @if ($booking->getStatus() == $paid)
-                        <td class="badge badge-success">Paid</td>
+                        <td class="">Paid</td>
                     @else
-                        <td class="badge badge-danger">Not paid</td>
+                        <td class="">Not paid</td>
                     @endif
                     <td>
                         <button class="btn btn-info">Edit</button>

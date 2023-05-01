@@ -5,9 +5,9 @@
 @section('content')
 <section class="my-5 mx-5">
     <div class="text-end">
-        <button class="btn btn-primary">
+        <a href="{{ route('dashboard-rooms-create') }}" class="btn btn-primary">
             Add Room
-        </button>
+        </a >
     </div>
     <div class="table-responsive">
         <table class="table gs-7 gy-7 gx-7">

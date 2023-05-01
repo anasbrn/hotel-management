@@ -4,6 +4,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Hotel\ShowHotelController;
+use App\Http\Controllers\Room\CreateRoomController;
 use App\Http\Controllers\Hotel\ListHotelsController;
 use App\Http\Controllers\Booking\BookHotelController;
 use App\Http\Controllers\Booking\StoreBookingController;
@@ -45,9 +46,12 @@ Route::get('/dashboard/bookings', function () {
 
 Route::get('hotels', ListHotelsController::class)->name('list-hotels');
 Route::get('hotel/{id}', ShowHotelController::class)->name('show');
-Route::get('/dashboard/hotels', ListBackOfficeHotelsController::class)->name('dashboard-hotels');
-Route::get('/dashboard/rooms', ListBackOfficeRoomsController::class)->name('dashboard-rooms');
-Route::get('/dashboard/bookings', ListBackOfficeBookingsController::class)->name('dashboard-bookings');
+Route::get('/dashboard/hotels', ListBackOfficeHotelsController::class)->name('dashboard-hotels')->middleware('auth');
+////////////////////////ROOMS
+Route::get('/dashboard/rooms', ListBackOfficeRoomsController::class)->name('dashboard-rooms')->middleware('auth');
+Route::get('/dashboard/rooms/create', CreateRoomController::class)->name('dashboard-rooms-create')->middleware('auth');
+////////////////////////ROOMS
+Route::get('/dashboard/bookings', ListBackOfficeBookingsController::class)->name('dashboard-bookings')->middleware('auth');
 
 Route::get('hotel/{id}/booking', BookHotelController::class)->name('book')->middleware('auth', 'verified');
 Route::post('hotel/{id}/booking/store', StoreBookingController::class)->name('store-booking')->middleware('auth', 'verified');
