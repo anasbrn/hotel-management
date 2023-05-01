@@ -33,4 +33,9 @@ class BookingService
     {
         return $this->bookingRepository->find($id);
     }
+
+    public function destroy($id)
+    {
+        return $this->bookingRepository->destroy($id);
+    }
 }

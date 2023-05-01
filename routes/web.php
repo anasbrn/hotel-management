@@ -12,6 +12,7 @@ use App\Http\Controllers\Room\UpdateRoomController;
 use App\Http\Controllers\Hotel\ListHotelsController;
 use App\Http\Controllers\Booking\BookHotelController;
 use App\Http\Controllers\Booking\StoreBookingController;
+use App\Http\Controllers\Booking\DeleteBookingController;
 use App\Http\Controllers\Room\ListBackOfficeRoomsController;
 use App\Http\Controllers\Payment\getReceiptPaymentController;
 use App\Http\Controllers\Hotel\ListBackOfficeHotelsController;
@@ -60,6 +61,8 @@ Route::put('/dashboard/room/{room_id}/update', UpdateRoomController::class)->nam
 Route::delete('/dashboard/room/{room_id}/delete', DeleteRoomController::class)->name('dashboard-rooms-delete')->middleware('auth');
 ////////////////////////ROOMS
 Route::get('/dashboard/bookings', ListBackOfficeBookingsController::class)->name('dashboard-bookings')->middleware('auth');
+Route::delete('/dashboard/booking/{booking_id}/delete', DeleteBookingController::class)->name('dashboard-bookings-delete')->middleware('auth');
+
 
 Route::get('hotel/{id}/booking', BookHotelController::class)->name('book')->middleware('auth', 'verified');
 Route::post('hotel/{id}/booking/store', StoreBookingController::class)->name('store-booking')->middleware('auth', 'verified');

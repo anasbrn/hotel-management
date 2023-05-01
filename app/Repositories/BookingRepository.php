@@ -21,4 +21,9 @@ class BookingRepository
     {
         return Booking::findOrFail($id);
     }
+
+    public function destroy($id)
+    {
+        return Booking::destroy($id);
+    }
 }

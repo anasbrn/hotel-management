@@ -32,10 +32,6 @@
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                               Actions
                             </button>
-                            {{-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                              <li><a class="dropdown-item" href="{{ route('dashboard-rooms-edit', ['room_id' => $room->getId()]) }}">Edit</a></li>
-                              <li><a class="dropdown-item" href="{{ route('dashboard-rooms-delete', ['room_id' => $room->getId()]) }}">Delete</a></li>
-                            </ul> --}}
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li>
                                     <form action="{{ route('dashboard-rooms-delete', ['room_id' => $room->getId()]) }}" method="POST">

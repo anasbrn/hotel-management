@@ -44,8 +44,23 @@
                         <td class="">Not paid</td>
                     @endif
                     <td>
-                        <button class="btn btn-info">Edit</button>
-                        <button class="btn btn-danger">Delete</button>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                              Actions
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li>
+                                    <form action="{{ route('dashboard-bookings-delete', ['booking_id' => $booking->getId()]) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="dropdown-item" type="submit">Delete</button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <a href="">Approve</a>
+                                </li>
+                            </ul>
+                          </div>
                     </td>
                 </tr>
                 @endforeach
