@@ -28,8 +28,27 @@
                     <td>{{ $room->getRoomType() }}</td>
                     <td>{{ $room->getPrice() }}</td>
                     <td>
-                        <a href="{{ route('dashboard-rooms-edit', ['room_id' => $room->getId()]) }}" class="btn btn-info">Edit</a>
-                        <a href="" class="btn btn-danger">Delete</a>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                              Actions
+                            </button>
+                            {{-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                              <li><a class="dropdown-item" href="{{ route('dashboard-rooms-edit', ['room_id' => $room->getId()]) }}">Edit</a></li>
+                              <li><a class="dropdown-item" href="{{ route('dashboard-rooms-delete', ['room_id' => $room->getId()]) }}">Delete</a></li>
+                            </ul> --}}
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li>
+                                    <form action="{{ route('dashboard-rooms-delete', ['room_id' => $room->getId()]) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="dropdown-item" type="submit">Delete</button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <a href="{{ route('dashboard-rooms-edit', ['room_id' => $room->getId()]) }}">Edit</a>
+                                </li>
+                            </ul>
+                          </div>
                     </td>
                 </tr>
                 @endforeach

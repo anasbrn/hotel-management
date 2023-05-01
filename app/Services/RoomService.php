@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Room;
 use App\Repositories\RoomRepository;
 
 class RoomService
@@ -26,5 +27,15 @@ class RoomService
     public function find($id)
     {
         return $this->roomRepository->find($id);
+    }
+
+    public function update($id, $data)
+    {
+        return $this->roomRepository->update($id, $data);
+    }
+
+    public function destroy($id)
+    {
+        return $this->roomRepository->destroy($id);
     }
 }

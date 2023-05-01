@@ -9,15 +9,16 @@
 @section('content')
     <section class="mx-5 my-5">
         <div>
-            <form action="" method="POST">
+            <form method="POST" action="{{ route('dashboard-rooms-update', ['room_id' => $room->getId()]) }}">
                 @csrf
+                @method('PUT')
                 <div class="mb-5">
                     <label for="room_number">Room Number</label>
-                    <input class="form-control" type="text" id="room_number" name="{{ Room::ROOM_NUMBER_COLUMN }}" value="{{ $room->getRoomNumber() }}">
+                    <input class="form-control" type="text" id="room_number" name="room_number" value="{{ $room->getRoomNumber() }}">
                 </div>
                 <div class="mb-5">
                     <label for="hotel_id">Hotel Name</label>
-                    <select class="form-control" name="{{ Room::HOTEL_ID_COLUMN }}" id="hotel_id">
+                    <select class="form-control" name="hotel_id" id="hotel_id">
                         <option>Select Hotel</option>
                         @foreach ($hotels as $hotel)
                         @if ($hotel->getName() == $room->hotel->getName())
@@ -30,7 +31,7 @@
                 </div>
                 <div class="mb-5">
                     <label for="room_type">Room Type</label>
-                    <select class="form-control" type="text" id="room_type" name="{{ Room::ROOM_TYPE_COLUMN }}">
+                    <select class="form-control" type="text" id="room_type" name="room_type">
                         <option>Select room type</option>
                         @if($room->getRoomType() == 'Single')
                             <option selected value="Single">Single</option>
@@ -44,9 +45,9 @@
                 </div>
                 <div class="mb-5">
                     <label for="price">Price Per Night</label>
-                    <input class="form-control" type="text" id="price" name="{{ Room::PRICE_PER_NIGHT_COLUMN }}" value="{{ $room->getPrice() }}">
+                    <input class="form-control" type="text" id="price" name="price_per_night" value="{{ $room->getPrice() }}">
                 </div>
-                <button class="btn btn-primary">Update</button>
+                <button class="btn btn-primary" type="submit">Update</button>
             </form>
         </div>
     </section>
