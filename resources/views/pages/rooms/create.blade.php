@@ -17,7 +17,7 @@
                 </div>
                 <div class="mb-5">
                     <label for="hotel_id">Hotel Name</label>
-                    <select name="{{ Room::HOTEL_ID_COLUMN }}" id="hotel_id">
+                    <select class="form-control" name="{{ Room::HOTEL_ID_COLUMN }}" id="hotel_id">
                         <option>Select Hotel</option>
                         @foreach ($hotels as $hotel)
                             <option value="{{ $hotel->getId() }}">{{ $hotel->getName() }}</option>
@@ -25,8 +25,12 @@
                     </select>
                 </div>
                 <div class="mb-5">
-                    <label for="room_number">Room Number</label>
-                    <input class="form-control" type="text" id="room_number" name="{{ Room::ROOM_NUMBER_COLUMN }}">
+                    <label for="room_type">Room Type</label>
+                    <select class="form-control" type="text" id="room_type" name="{{ Room::ROOM_TYPE_COLUMN }}">
+                        <option>Select room type</option>
+                        <option value="Single">Single</option>
+                        <option value="Double">Double</option>
+                    </select>
                 </div>
                 <div class="mb-5">
                     <label for="price">Price Per Night</label>

@@ -28,8 +28,8 @@
                     <td>{{ $room->getRoomType() }}</td>
                     <td>{{ $room->getPrice() }}</td>
                     <td>
-                        <button class="btn btn-info">Edit</button>
-                        <button class="btn btn-danger">Delete</button>
+                        <a href="{{ route('dashboard-rooms-edit', ['room_id' => $room->getId()]) }}" class="btn btn-info">Edit</a>
+                        <a href="" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
                 @endforeach

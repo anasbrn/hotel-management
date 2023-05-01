@@ -11,10 +11,23 @@ class Room extends Model
 {
     use HasFactory;
 
+    public const ID_COLUMN = 'id';
     public const ROOM_NUMBER_COLUMN = 'room_number';
     public const HOTEL_ID_COLUMN = 'hotel_id';
     public const ROOM_TYPE_COLUMN = 'room_type';
     public const PRICE_PER_NIGHT_COLUMN = 'price_per_night';
+
+    protected $fillable = [
+        'room_number',
+        'hotel_id',
+        'room_type',
+        'price_per_night',
+    ];
+
+    public function getId()
+    {
+        return $this->getAttribute(self::ID_COLUMN);
+    }
 
     public function getRoomNumber()
     {

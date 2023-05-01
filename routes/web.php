@@ -3,6 +3,8 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\Room\EditRoomController;
+use App\Http\Controllers\Room\StoreRoomController;
 use App\Http\Controllers\Hotel\ShowHotelController;
 use App\Http\Controllers\Room\CreateRoomController;
 use App\Http\Controllers\Hotel\ListHotelsController;
@@ -50,6 +52,8 @@ Route::get('/dashboard/hotels', ListBackOfficeHotelsController::class)->name('da
 ////////////////////////ROOMS
 Route::get('/dashboard/rooms', ListBackOfficeRoomsController::class)->name('dashboard-rooms')->middleware('auth');
 Route::get('/dashboard/rooms/create', CreateRoomController::class)->name('dashboard-rooms-create')->middleware('auth');
+Route::post('/dashboard/rooms/store', StoreRoomController::class)->name('dashboard-rooms-store')->middleware('auth');
+Route::get('/dashboard/room/{room_id}', EditRoomController::class)->name('dashboard-rooms-edit')->middleware('auth');
 ////////////////////////ROOMS
 Route::get('/dashboard/bookings', ListBackOfficeBookingsController::class)->name('dashboard-bookings')->middleware('auth');
 
