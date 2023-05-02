@@ -30,8 +30,6 @@
             
             </li>
         </ul>
-        @elseif (route('register') || route('login'))
-        
         @else
         <div>
             <a class="btn btn-primary mx-5" href="{{ route('login') }}">Login</a>

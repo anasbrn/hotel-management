@@ -30,7 +30,7 @@
                 <select class="form-control" name="room_id" id="room">
                     <option value="">Available rooms</option>
                     @foreach ($hotel->rooms as $room)
-                        @if ($room->id != $booking->getRoomId() || $booking->getUserId() != Auth::user()->id)
+                        @if ($booking->getRoomId() == $room->id)
                             <option value="{{ $room->id }}" disabled>{{ $room->room_number }} - <span class="fw-bold text-danger">Booked</span></option>
                         @else
                             <option value="{{ $room->id }}">{{ $room->room_number }}</option>

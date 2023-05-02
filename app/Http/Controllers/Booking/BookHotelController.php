@@ -20,7 +20,6 @@ class BookHotelController extends Controller
         $hotel = $this->hotelService->find($id);
         
         $booking = Booking::where('user_id', Auth::id())
-            ->where('hotel_id', $hotel->id)
             ->first();
             
         

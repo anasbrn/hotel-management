@@ -10,11 +10,6 @@
 
 @section('content')
 <section class="my-5 mx-5">
-    <div class="text-end">
-        <button class="btn btn-primary">
-            Add Room
-        </button>
-    </div>
     <div class="table-responsive">
         <table class="table gs-7 gy-7 gx-7">
             <thead>
@@ -26,7 +21,9 @@
                     <th>Hotel Name</th>
                     <th>Reference Number</th>
                     <th>Status</th>
-                    <th>Actions</th>
+                    @can('approve-bookings')
+                        <th>Actions</th>
+                    @endcan
                 </tr>
             </thead>
             <tbody>
@@ -43,31 +40,33 @@
                     @else
                         <td class="">Not paid</td>
                     @endif
-                    <td>
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                              Actions
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li>
-                                    <form action="{{ route('dashboard-bookings-delete', ['booking_id' => $booking->getId()]) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="dropdown-item" type="submit">Delete</button>
-                                    </form>
-                                </li>
-                                @if($booking->getStatus() == $not_paid)
+                    @can('approve-bookings')
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Actions
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li>
-                                        <form action="{{ route('dashboard-bookings-approve', ['booking_id' => $booking->getId()]) }}" method="POST">
+                                        <form action="{{ route('dashboard-bookings-delete', ['booking_id' => $booking->getId()]) }}" method="POST">
                                             @csrf
-                                            @method('PUT')
-                                            <button class="dropdown-item" type="submit">Approve</button>
+                                            @method('DELETE')
+                                            <button class="dropdown-item" type="submit">Delete</button>
                                         </form>
                                     </li>
-                                @endif
-                            </ul>
-                          </div>
-                    </td>
+                                    @if($booking->getStatus() == $not_paid)
+                                        <li>
+                                            <form action="{{ route('dashboard-bookings-approve', ['booking_id' => $booking->getId()]) }}" method="POST">
+                                                @csrf
+                                                @method('PUT')
+                                                <button class="dropdown-item" type="submit">Approve</button>
+                                            </form>
+                                        </li>
+                                        @endif
+                                </ul>
+                            </div>
+                        </td>
+                    @endcan
                 </tr>
                 @endforeach
             </tbody>

@@ -4,11 +4,13 @@
 
 @section('content')
 <section class="my-5 mx-5">
-    <div class="text-end">
-        <a href="{{ route('dashboard-rooms-create') }}" class="btn btn-primary">
-            Add Room
-        </a >
-    </div>
+    @can('create-rooms')
+        <div class="text-end">
+            <a href="{{ route('dashboard-rooms-create') }}" class="btn btn-primary">
+                Add Room
+            </a >
+        </div>
+    @endcan
     <div class="table-responsive">
         <table class="table gs-7 gy-7 gx-7">
             <thead>
@@ -17,7 +19,9 @@
                     <th>Hotel Name</th>
                     <th>Room Type</th>
                     <th>Price</th>
-                    <th>Actions</th>
+                    @can('edit-rooms')
+                        <th>Actions</th>
+                    @endcan
                 </tr>
             </thead>
             <tbody>
@@ -27,6 +31,8 @@
                     <td>{{ $room->hotel->getName() }}</td>
                     <td>{{ $room->getRoomType() }}</td>
                     <td>{{ $room->getPrice() }}</td>
+                    @can('edit-rooms')
+                        
                     <td>
                         <div class="dropdown">
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -44,8 +50,9 @@
                                     <a href="{{ route('dashboard-rooms-edit', ['room_id' => $room->getId()]) }}">Edit</a>
                                 </li>
                             </ul>
-                          </div>
+                        </div>
                     </td>
+                    @endcan
                 </tr>
                 @endforeach
             </tbody>
