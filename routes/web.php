@@ -14,6 +14,8 @@ use App\Http\Controllers\Hotel\ListHotelsController;
 use App\Http\Controllers\Hotel\StoreHotelController;
 use App\Http\Controllers\Booking\BookHotelController;
 use App\Http\Controllers\Hotel\CreateHotelController;
+use App\Http\Controllers\Hotel\DeleteHotelController;
+use App\Http\Controllers\Hotel\UpdateHotelController;
 use App\Http\Controllers\Booking\StoreBookingController;
 use App\Http\Controllers\Booking\DeleteBookingController;
 use App\Http\Controllers\Booking\ApproveBookingController;
@@ -60,6 +62,9 @@ Route::get('/dashboard/hotels', ListBackOfficeHotelsController::class)->name('da
 Route::get('/dashboard/hotels/create', CreateHotelController::class)->name('dashboard-hotels-create')->middleware('auth');
 Route::post('/dashboard/hotels/store', StoreHotelController::class)->name('dashboard-hotels-store')->middleware('auth');
 Route::get('/dashboard/hotel/{id}/edit', EditHotelController::class)->name('dashboard-hotels-edit')->middleware('auth');
+Route::put('/dashboard/hotel/{id}/update', UpdateHotelController::class)->name('dashboard-hotels-update')->middleware('auth');
+Route::delete('/dashboard/hotel/{id}/delete', DeleteHotelController::class)->name('dashboard-hotels-delete')->middleware('auth');
+
 
 ////////////////////////ROOMS
 Route::get('/dashboard/rooms', ListBackOfficeRoomsController::class)->name('dashboard-rooms')->middleware('auth');

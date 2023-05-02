@@ -31,4 +31,14 @@ class HotelService
     {
         return $this->hotelRepository->find($id);
     }
+
+    public function update($id, $data)
+    {
+        return $this->hotelRepository->update($id, $data);
+    }
+
+    public function destroy($id)
+    {
+        return $this->hotelRepository->destroy($id);
+    }
 }

@@ -34,7 +34,7 @@
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li>
-                                    <form action="" method="POST">
+                                    <form action="{{ route('dashboard-hotels-delete', ['id' => $hotel->getId()]) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="dropdown-item" type="submit">Delete</button>

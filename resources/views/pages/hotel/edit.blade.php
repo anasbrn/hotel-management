@@ -9,8 +9,9 @@
 @section('content')
     <section class="mx-5 my-5">
         <div>
-            <form action="" method="POST">
+            <form method="POST" action="{{ route('dashboard-hotels-update', ['id' => $hotel->getId()]) }}" >
                 @csrf
+                @method('PUT')
                 <div class="mb-5">
                     <label for="name">Hotel Name</label>
                     <input class="form-control" type="text" id="name" name="{{ Hotel::NAME_COLUMN }}" value="{{ $hotel->getName() }}">
@@ -40,7 +41,7 @@
                             @endforeach
                     </select>
                 </div>
-                <button class="btn btn-primary">Save</button>
+                <button class="btn btn-primary" type="submit">Save</button>
             </form>
         </div>
     </section>
