@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Models\Hotel;
+use Illuminate\Support\Facades\Auth;
 use App\Repositories\HotelRepository;
 
 class HotelService
@@ -11,6 +13,13 @@ class HotelService
     public function __construct(HotelRepository $hotelRepository)
     {
         $this->hotelRepository = $hotelRepository;
+    }
+
+    public function create(array $data)
+    {
+        $data[Hotel::USER_ID_COLUMN] = Auth::id();
+
+        return $this->hotelRepository->create($data);
     }
 
     public function all()

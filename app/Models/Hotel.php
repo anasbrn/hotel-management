@@ -18,6 +18,15 @@ class Hotel extends Model
     public const CITY_ID_COLUMN = 'city_id';
     public const USER_ID_COLUMN = 'user_id';
 
+    protected $fillable = [
+        'name',
+        'description',
+        'address',
+        'num_rooms',
+        'city_id',
+        'user_id',
+    ];
+
     public function getId()
     {
         return $this->getAttribute(self::ID_COLUMN);

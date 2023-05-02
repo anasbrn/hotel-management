@@ -7,6 +7,11 @@ use App\Models\Hotel;
 
 class HotelRepository
 {
+    public function create(array $data)
+    {
+        return Hotel::create($data);
+    }
+
     public function all()
     {
         return Hotel::all();

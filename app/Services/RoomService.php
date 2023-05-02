@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use App\Models\Room;
 use App\Repositories\RoomRepository;
 
 class RoomService

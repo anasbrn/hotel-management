@@ -5,9 +5,9 @@
 @section('content')
 <section class="my-5 mx-5">
     <div class="text-end">
-        <button class="btn btn-primary">
+        <a class="btn btn-primary" href="{{ route('dashboard-hotels-create') }}">
             Add Hotel
-        </button>
+        </a>
     </div>
     <div class="table-responsive">
         <table class="table gs-7 gy-7 gx-7">
@@ -33,10 +33,18 @@
                               Actions
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                              <li><a class="dropdown-item" href="">Edit</a></li>
-                              <li><a class="dropdown-item" href="#">Delete</a></li>
+                                <li>
+                                    <form action="" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="dropdown-item" type="submit">Delete</button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <a href="{{ route('dashboard-hotels-edit', ['id' => $hotel->getId()]) }}">Edit</a>
+                                </li>
                             </ul>
-                        </div>
+                          </div>
                     </td>
                 </tr>
                 @endforeach

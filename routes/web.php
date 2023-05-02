@@ -5,12 +5,15 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Room\EditRoomController;
 use App\Http\Controllers\Room\StoreRoomController;
+use App\Http\Controllers\Hotel\EditHotelController;
 use App\Http\Controllers\Hotel\ShowHotelController;
 use App\Http\Controllers\Room\CreateRoomController;
 use App\Http\Controllers\Room\DeleteRoomController;
 use App\Http\Controllers\Room\UpdateRoomController;
 use App\Http\Controllers\Hotel\ListHotelsController;
+use App\Http\Controllers\Hotel\StoreHotelController;
 use App\Http\Controllers\Booking\BookHotelController;
+use App\Http\Controllers\Hotel\CreateHotelController;
 use App\Http\Controllers\Booking\StoreBookingController;
 use App\Http\Controllers\Booking\DeleteBookingController;
 use App\Http\Controllers\Booking\ApproveBookingController;
@@ -50,9 +53,14 @@ Route::get('/dashboard/bookings', function () {
 })->middleware('auth')->name('dashboard-bookings');
 //////////////////////////////////////////////////////////////
 
+//////////////////////Hotels
 Route::get('hotels', ListHotelsController::class)->name('list-hotels');
 Route::get('hotel/{id}', ShowHotelController::class)->name('show');
 Route::get('/dashboard/hotels', ListBackOfficeHotelsController::class)->name('dashboard-hotels')->middleware('auth');
+Route::get('/dashboard/hotels/create', CreateHotelController::class)->name('dashboard-hotels-create')->middleware('auth');
+Route::post('/dashboard/hotels/store', StoreHotelController::class)->name('dashboard-hotels-store')->middleware('auth');
+Route::get('/dashboard/hotel/{id}/edit', EditHotelController::class)->name('dashboard-hotels-edit')->middleware('auth');
+
 ////////////////////////ROOMS
 Route::get('/dashboard/rooms', ListBackOfficeRoomsController::class)->name('dashboard-rooms')->middleware('auth');
 Route::get('/dashboard/rooms/create', CreateRoomController::class)->name('dashboard-rooms-create')->middleware('auth');
@@ -60,7 +68,8 @@ Route::post('/dashboard/rooms/store', StoreRoomController::class)->name('dashboa
 Route::get('/dashboard/room/{room_id}/edit', EditRoomController::class)->name('dashboard-rooms-edit')->middleware('auth');
 Route::put('/dashboard/room/{room_id}/update', UpdateRoomController::class)->name('dashboard-rooms-update')->middleware('auth');
 Route::delete('/dashboard/room/{room_id}/delete', DeleteRoomController::class)->name('dashboard-rooms-delete')->middleware('auth');
-////////////////////////ROOMS
+
+////////////////////////BOOkings
 Route::get('/dashboard/bookings', ListBackOfficeBookingsController::class)->name('dashboard-bookings')->middleware('auth');
 Route::put('/dashboard/booking/{booking_id}/approve', ApproveBookingController::class)->name('dashboard-bookings-approve')->middleware('auth');
 Route::delete('/dashboard/booking/{booking_id}/delete', DeleteBookingController::class)->name('dashboard-bookings-delete')->middleware('auth');

@@ -9,7 +9,13 @@ class City extends Model
 {
     use HasFactory;
 
+    public const ID_COLUMN = 'id';
     public const NAME_COLUMN = 'name';
+
+    public function getId()
+    {
+        return $this->getAttribute(self::ID_COLUMN);
+    }
 
     public function getName()
     {
