@@ -9,11 +9,14 @@ class Payment extends Model
 {
     use HasFactory;
 
+    public const STATUS_PAID = 1; 
+    public const STATUS_NOT_PAID = 0; 
+
     public function user() {
         return $this->belongsTo(User::class);
     }
 
-    public function Reservation() {
-        return $this->belongsTo(Reservation::class);
+    public function booking() {
+        return $this->belongsTo(Booking::class);
     }
 }
