@@ -1,8 +1,6 @@
 @extends('layouts.hotel.layout')
 
-@section('title')
-    All hotels
-@endsection
+@section('title', $city->getName().' '.'-'.' '.'Hotels')
 
 @section('content')
 <section class="d-flex mx-5 justify-content-center gap-5">
