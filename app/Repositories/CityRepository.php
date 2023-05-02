@@ -11,4 +11,9 @@ class CityRepository
     {
         return City::all();
     }
+
+    public function find($id)
+    {
+        return City::findOrFail($id);
+    }
 }

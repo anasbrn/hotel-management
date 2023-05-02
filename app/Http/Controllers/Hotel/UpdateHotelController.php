@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Hotel;
 use App\Services\HotelService;
 use App\Http\Requests\HotelRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Room\RoomRequest;
 
 class UpdateHotelController extends Controller
 {

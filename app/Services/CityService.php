@@ -17,4 +17,9 @@ class CityService
     {
         return $this->cityRepository->all();
     }
+
+    public function find($id)
+    {
+        return $this->cityRepository->find($id);
+    }
 }

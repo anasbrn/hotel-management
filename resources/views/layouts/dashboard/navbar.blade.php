@@ -14,7 +14,7 @@
   </div>
   <div class="dropdown mx-5">
     <a class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-      <img src="{{ url('Media/user/images/user.png') }}" alt="profile" width="40" height="40">
+      <img src="{{ url('Media/user/user.png') }}" alt="profile" width="40" height="40">
     </a>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <li class="w-50">

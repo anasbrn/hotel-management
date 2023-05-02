@@ -3,8 +3,10 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Room\EditRoomController;
 use App\Http\Controllers\Room\StoreRoomController;
+use App\Http\Controllers\City\ListCitiesController;
 use App\Http\Controllers\Hotel\EditHotelController;
 use App\Http\Controllers\Hotel\ShowHotelController;
 use App\Http\Controllers\Room\CreateRoomController;
@@ -19,6 +21,7 @@ use App\Http\Controllers\Hotel\UpdateHotelController;
 use App\Http\Controllers\Booking\StoreBookingController;
 use App\Http\Controllers\Booking\DeleteBookingController;
 use App\Http\Controllers\Booking\ApproveBookingController;
+use App\Http\Controllers\Hotel\FilterHotelsByCityController;
 use App\Http\Controllers\Room\ListBackOfficeRoomsController;
 use App\Http\Controllers\Payment\getReceiptPaymentController;
 use App\Http\Controllers\Hotel\ListBackOfficeHotelsController;
@@ -35,11 +38,8 @@ use App\Http\Controllers\Booking\ListBackOfficeBookingsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome', [
-        'users' => User::all() 
-    ]);
-});
+Route::get('/', ListCitiesController::class)->name('list-cities');
+Route::get('/City/{city_id}', FilterHotelsByCityController::class)->name('list-cities-hotels');
 
 Route::get('/dashboard', function () {
     return view('pages.user.dashboard');
@@ -53,7 +53,11 @@ Route::get('/dashboard', function () {
 Route::get('/dashboard/bookings', function () {
     return view('pages.user.bookings');
 })->middleware('auth')->name('dashboard-bookings');
+
+
 //////////////////////////////////////////////////////////////
+Route::get('redirects', HomeController::class);
+
 
 //////////////////////Hotels
 Route::get('hotels', ListHotelsController::class)->name('list-hotels');
