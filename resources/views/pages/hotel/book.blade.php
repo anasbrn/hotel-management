@@ -12,7 +12,7 @@
 <section class="d-flex justify-content-center">
     <div class="mx-5 w-50">
         <h1 class="text-center">{{ $hotel->getName() }}</h1>
-        <form action="{{ route('store-booking', $hotel->getId()) }}" method="POST   ">
+        <form method="POST" action="{{ route('store-booking', $hotel->getId()) }}" >
             @csrf
             <div class="mb-3">    
                 <label for="check_in_date">Check in date</label>
@@ -30,11 +30,14 @@
                 <select class="form-control" name="room_id" id="room">
                     <option value="">Available rooms</option>
                     @foreach ($hotel->rooms as $room)
-                        @if ($booking->getRoomId() == $room->id)
-                            <option value="{{ $room->id }}" disabled>{{ $room->room_number }} - <span class="fw-bold text-danger">Booked</span></option>
-                        @else
-                            <option value="{{ $room->id }}">{{ $room->room_number }}</option>
-                        @endif
+                        @foreach ($bookings as $booking)
+                            @if(DB::table('bookings')->where('room_id', $room->getId())->exists())
+                                <option value="{{ $room->id }}" disabled>{{ $room->room_number }} - <span class="fw-bold text-danger">Booked</span></option>
+                                @break
+                            @else
+                                <option value="{{ $room->id }}">{{ $room->room_number }}</option>
+                            @endif
+                        @endforeach
                     @endforeach
                 </select>    
             </div>

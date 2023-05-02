@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\HomeController;
@@ -18,7 +17,6 @@ use App\Http\Controllers\Booking\BookHotelController;
 use App\Http\Controllers\Hotel\CreateHotelController;
 use App\Http\Controllers\Hotel\DeleteHotelController;
 use App\Http\Controllers\Hotel\UpdateHotelController;
-use App\Http\Controllers\Booking\StoreBookingController;
 use App\Http\Controllers\Booking\DeleteBookingController;
 use App\Http\Controllers\Booking\ApproveBookingController;
 use App\Http\Controllers\Hotel\FilterHotelsByCityController;
@@ -26,6 +24,7 @@ use App\Http\Controllers\Room\ListBackOfficeRoomsController;
 use App\Http\Controllers\Payment\getReceiptPaymentController;
 use App\Http\Controllers\Hotel\ListBackOfficeHotelsController;
 use App\Http\Controllers\Booking\ListBackOfficeBookingsController;
+use App\Http\Controllers\Booking\StoreBookingController;
 
 /*
 |--------------------------------------------------------------------------
