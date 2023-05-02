@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Hotel;
 
 use App\Services\HotelService;
+use App\Http\Requests\HotelRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Room\RoomRequest;
 
@@ -15,12 +16,12 @@ class UpdateHotelController extends Controller
         $this->hotelService = $hotelService;
     }
 
-    public function __invoke($id, RoomRequest $request)
+    public function __invoke($id, HotelRequest $request)
     {
         $this->hotelService->update($id, $request->all());
 
         return redirect()
-            ->route('dashboard.user.hotels')
+            ->route('dashboard-hotels')
             ->with('Hotel has been updated successfully');
     }
 }
