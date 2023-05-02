@@ -8,9 +8,12 @@
     <title>@yield('title')</title>
 </head>
 <body>
+    @include('layouts.hotel.navbar')
+
     @yield('content')
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    @include('layouts._guest')
+
     @yield('scripts')
 </body>
 </html>
