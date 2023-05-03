@@ -17,7 +17,6 @@ return new class extends Migration
             $table->longText('description');
             $table->string('address');
             $table->integer('num_rooms');
-            $table->integer('stars');
             $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('city_id')->references('id')->on('cities');
             $table->timestamps();
